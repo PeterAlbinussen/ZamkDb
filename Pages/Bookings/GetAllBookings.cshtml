@@ -1,0 +1,50 @@
+﻿@page
+@using Microsoft.AspNet.Identity
+@model ZamkDb.Pages.Bookings.GetAllBookingsModel
+@{
+}
+
+<p>
+	<a asp-page="Create">Create new booking</a>
+</p>
+
+<h3 style="color:seagreen">My bookings</h3>
+<table class="table">
+	<thead>
+	<tr>
+		<th>Booking Id</th>
+		<th>Course Id</th>
+		<th>Participant Id</th>
+		<th>Participant name</th>
+		<th>Driver name</th>
+		<th> Date </th>
+	</tr>
+	</thead>
+	<tbody>
+
+		@if (Model.Bookings != null)
+		{
+			@foreach (var item in Model.Bookings)
+			{
+				@if (User.Identity.GetUserId() == item.ParticipantId)
+				{
+		<tr>
+			<td> @item.BookingId</td>
+			<td> @item.CourseId</td>
+			<td> @item.ParticipantId</td>
+			<td> @item.Participant.Name</td>
+			<td> @item.Course.User.Name</td>
+			<td> @item.Date</td>
+			<td>
+				@if (User.Identity.GetUserId() == item.ParticipantId)
+				{
+				    <a asp-page="Delete" asp-route-id="@item.BookingId" class="btn btn-danger m-1">Delete</a>
+				    <a asp-page="Edit" asp-route-id="@item.CourseId" class="btn btn-primary m-1">Edit</a>
+				}
+			</td>
+		</tr>
+				}
+			}
+		}
+	</tbody>
+</table>

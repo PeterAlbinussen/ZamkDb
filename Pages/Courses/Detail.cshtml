@@ -1,0 +1,27 @@
+﻿@page
+@model ZamkDb.Pages.Courses.DetailModel
+@{
+}
+
+<h1>Information</h1>
+
+<div class="nav-item">
+	<img src="~/img/GoogleMaps.png"/>
+	<h5>Driver @User.Identity.Name</h5>
+	<h5>Zealand Location: @Model.Course.ZealandLocation </h5>
+	<h5>Startpoint: @Model.Course.StartLocation </h5>
+	<h5>Endpoint: @Model.Course.EndLocation </h5>
+	<h5>Pickup points:</h5>
+	<p>1: @Model.Course.PickUpPoint1</p>
+	<p>2: @Model.Course.PickUpPoint2</p>
+	<p>3: @Model.Course.PickUpPoint3</p>
+
+
+	<form method="post">
+		@*<button type="submit" class="btn btn-primary">Book this course</button>*@
+		<a class="btn btn-primary" asp-page="/Courses/GetAllCourses">Go back</a>
+		<p>
+			<a class="btn btn-primary" asp-page="/Bookings/Create"  asp-route-tid="@Model.Course.CourseId">Book </a>
+		</p>
+	</form>
+</div>

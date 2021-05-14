@@ -1,0 +1,65 @@
+﻿@page
+@model ZamkDb.Pages.Courses.CreateModel
+@using Microsoft.AspNet.Identity
+@{
+	var id = User.Identity.GetUserId();
+	Model.Course.UserId = id;
+}
+
+<form method="post">
+	<h3>Insert Values</h3>
+	<div asp-validation-summary="  ModelOnly  " class="text-danger"></div>
+	<div class="form-group">
+		<label asp-for="Course.ZealandLocation"></label><input asp-for="@Model.Course.ZealandLocation" class="form-control" />
+		<span asp-validation-for="Course.ZealandLocation" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Course.StartLocation"></label><input asp-for="@Model.Course.StartLocation" class="form-control" />
+		<span asp-validation-for="Course.StartLocation" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Course.EndLocation"></label><input asp-for="@Model.Course.EndLocation" class="form-control" />
+		<span asp-validation-for="Course.EndLocation" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Course.PickUpPoint1"></label><input asp-for="@Model.Course.PickUpPoint1" class="form-control" />
+		<span asp-validation-for="Course.PickUpPoint1" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label>Pick up point 2:</label><input asp-for="@Model.Course.PickUpPoint2" class="form-control" />
+		<span asp-validation-for="Course.PickUpPoint2" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label>Pick up point 3:</label><input asp-for="@Model.Course.PickUpPoint3" class="form-control" />
+		<span asp-validation-for="Course.PickUpPoint3" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Course.StartDateTime"></label><input asp-for="@Model.Course.StartDateTime" class="form-control" />
+		<span asp-validation-for="Course.StartDateTime" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Course.EndDateTime"></label><input asp-for="@Model.Course.EndDateTime" class="form-control" />
+		<span asp-validation-for="Course.EndDateTime" class="text-danger"></span>
+	</div>
+
+	<div>
+		<div>Not sure which pickup points you are passing? Check your route here:</div>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2252.350154230231!2d12.076499716155201!3d55.63072240886812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46525fe6169f296b%3A0x22ceaf8b52f6eeea!2sZealand%20-%20Sj%C3%A6llands%20Erhvervsakademi!5e0!3m2!1sda!2sdk!4v1620807497487!5m2!1sda!2sdk" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Course.UserId"></label><input asp-for="@Model.Course.UserId" class="form-control" readonly="readonly" />
+		<span asp-validation-for="@Model.Course.UserId" class="text-danger"></span>
+	</div>
+
+	<div class="text-center">
+		<input class="btn btn-primary" type="submit" value="Create Course" />
+	</div>
+</form>

@@ -1,0 +1,33 @@
+﻿@page
+@model ZamkDb.Pages.Bookings.CreateModel
+@using Microsoft.AspNet.Identity
+@{
+	var id = User.Identity.GetUserId();
+	Model.Booking.ParticipantId = id;
+
+	var date = DateTime.Now;
+	Model.Booking.Date = date;
+}
+
+<form method="post">
+	<h3>Insert values</h3>
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<div class="form-group">
+		<label asp-for="Booking.CourseId"></label><input asp-for="@Model.Booking.CourseId" class="form-control" />
+		<span asp-validation-for="Booking.CourseId" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Booking.ParticipantId"></label><input asp-for="@Model.Booking.ParticipantId" class="form-control" />
+		<span asp-validation-for="@Model.Booking.ParticipantId" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Booking.Date"></label><input asp-for="@Model.Booking.Date" class="form-control" />
+		<span asp-validation-for="@Model.Booking.Date" class="text-danger"></span>
+	</div>
+
+	<div class="text-center">
+		<input class="btn btn-primary" type="submit" value="Book this course" />
+	</div>
+</form>

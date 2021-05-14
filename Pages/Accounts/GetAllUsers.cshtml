@@ -1,0 +1,58 @@
+﻿@page
+@model ZamkDb.Pages.Accounts.GetAllUsersModel
+@{
+}
+
+@if (Model.Users.Count() != 0)
+{
+    @*<a class="btn btn-primary mb-3" style="width:auto" asp-page="Create">Add new role</a>*@
+
+	foreach (var user in Model.Users)
+	{
+		<div class="card mb-3">
+			<div class="card-header">
+				User Id : @user.Id
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">@user.Email</h5>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">@user.Name</h5>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">@user.Address</h5>
+			</div>
+			<div class="card-footer">
+				<a asp-page="/Accounts/User_Bookings" asp-route-uid="@user.Id">My bookings</a>
+			</div>
+			@*<a href="C:\Users\EASJ\Desktop\Security_AspNetCore\CarPooling_RazorPagesApp\CarPooling_RazorPagesApp\Models\CarPoolingDBContext.cs">C:\Users\EASJ\Desktop\Security_AspNetCore\CarPooling_RazorPagesApp\CarPooling_RazorPagesApp\Models\CarPoolingDBContext.cs</a>*@
+		</div>
+
+        @*<tr>
+                <td>  @user.Id </td>
+                <td>  @user.Email </td>
+                 <td>
+                    <p>
+                        <a asp-page="/Roles/GetAllRoles" asp-route-uid="@user.Id"> Assign Role </a>
+                    </p>
+                </td>
+
+            </tr>*@
+	}
+}
+else
+{
+	<div class="card">
+		<div class="card-header">
+			No users created yet
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">
+				Use the button below to create a user
+			</h5>
+			<a class="btn btn-primary" style="width:auto" asp-page="Accounts/Registration">
+				Create User
+			</a>
+		</div>
+	</div>
+}
