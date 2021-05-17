@@ -44,7 +44,7 @@ namespace ZamkDb.Pages.Account
 		    if (result.Succeeded)
 		    {
 			    await SignIn.SignInAsync(user, isPersistent: false);
-			    return RedirectToPage("/Accounts/GetAllUsers");
+			    return RedirectToPage("/Account/GetAllUsers");
 		    }
 		    else
 		    {

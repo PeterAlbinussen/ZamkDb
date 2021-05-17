@@ -11,21 +11,24 @@ namespace ZamkDb.Pages.Account
 {
     public class GetAllUsersModel : PageModel
     {
-	    private readonly ZamDbContext context;
-	    private readonly SignInManager<IdentityUser> signIn;
+        private readonly ZamDbContext context;
+        private readonly SignInManager<IdentityUser> signIn;
 
-	    //public IQueryable<IdentityUser> Users { get; set; }
-	    public IQueryable<Participant> Users { get; set; }
+        [BindProperty] public Course Course { get; set; }
 
-	    public GetAllUsersModel(ZamDbContext context, SignInManager<IdentityUser> signIn)
-	    {
-		    this.context = context;
-		    this.signIn = signIn;
-	    }
-	    public void OnGet()
-	    {
-		    //Users= this.signIn.UserManager.Users;
-		    Users = context.Participants;
-	    }
+        //public IQueryable<IdentityUser> Users { get; set; }
+        public IQueryable<Participant> Users { get; set; }
+
+        public GetAllUsersModel(ZamDbContext context, SignInManager<IdentityUser> signIn)
+        {
+            this.context = context;
+            this.signIn = signIn;
+        }
+
+        public void OnGet()
+        {
+            //Users= this.signIn.UserManager.Users;
+            Users = context.Participants;
+        }
     }
 }

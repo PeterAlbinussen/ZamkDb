@@ -22,7 +22,7 @@ namespace ZamkDb.Services.EFService
 			var participant = _context.Participants
 				.Include(p => p.Bookings).ThenInclude(c => c.Course)
 				.AsNoTracking()
-				.FirstOrDefault(m => m.DriverId == id);
+				.FirstOrDefault(m => m.Id == id);
 			return participant;
 			//return _context.Participants.Find(id);
 		}
@@ -34,11 +34,16 @@ namespace ZamkDb.Services.EFService
 
         public Participant EditParticipant(Participant p)
         {
-			
-            var Participant = _context.Participants.Attach(p);
-            Participant.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var participant = _context.Participants.Where(pa => pa.Id == p.Id).FirstOrDefault();
+            participant.canBeDriver = p.canBeDriver;
+            participant.Address = p.Address;
+            //_context.Participants.Add(participant);
             _context.SaveChanges();
-            return p;
+
+            //var Participant = _context.Participants.Attach(p);
+            //Participant.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            //_context.SaveChanges();
+            return participant;
             
         }
     }

@@ -18,7 +18,7 @@ namespace ZamkDb.Pages.Account
             this.repository = repository;
         }
 
-        
+        [BindProperty]
         public Participant Participant { get; set; }
 
 
@@ -28,10 +28,10 @@ namespace ZamkDb.Pages.Account
             return Page();
         }
 
-        public IActionResult OnPost(Participant participant)
+        public IActionResult OnPost()
         {
-            participant = repository.EditParticipant(participant);
-            return RedirectToPage("GetAllParticipants");
+            Participant = repository.EditParticipant(Participant);
+            return RedirectToPage("/Account/GetAllUsers");
         }
     }
 }

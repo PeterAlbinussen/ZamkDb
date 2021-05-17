@@ -1,45 +1,38 @@
 ﻿@page
+@using Microsoft.AspNet.Identity
+@using ZamkDb.Models
 @model ZamkDb.Pages.Account.GetAllUsersModel
 @{
 }
 
 @if (Model.Users.Count() != 0)
 {
-    @*<a class="btn btn-primary mb-3" style="width:auto" asp-page="Create">Add new role</a>*@
-
+    
 	foreach (var user in Model.Users)
 	{
-		<div class="card mb-3">
-			<div class="card-header">
-				User Id : @user.Id
-			</div>
-			<div class="card-body">
-				<h5 class="card-title">@user.Email</h5>
-			</div>
-			<div class="card-body">
-				<h5 class="card-title">@user.Name</h5>
-			</div>
-			<div class="card-body">
-				<h5 class="card-title">@user.Address</h5>
-			</div>
-            <div class="card-footer">
-                <a asp-page="/Account/User_Bookings" asp-route-uid="@user.Id">My bookings</a>
-                <a asp-page="/Account/ManageYourAccount" asp-route-uid="@user.Id">Manage Account </a>
+	    @if (User.Identity.GetUserId() == user.Id )
+	    {
+	        <div class="card mb-3">
+                <div class="card-header">
+                    User Id : @user.Id
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@user.Email</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@user.Name</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@user.Address</h5>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="/Account/User_Bookings" asp-route-uid="@user.Id">My bookings</a>
+                    <a asp-page="/Account/ManageYourAccount" asp-route-uid="@user.Id">Manage Account </a>
+                </div>
+
             </div>
-            
-			@*<a href="C:\Users\EASJ\Desktop\Security_AspNetCore\CarPooling_RazorPagesApp\CarPooling_RazorPagesApp\Models\CarPoolingDBContext.cs">C:\Users\EASJ\Desktop\Security_AspNetCore\CarPooling_RazorPagesApp\CarPooling_RazorPagesApp\Models\CarPoolingDBContext.cs</a>*@
-		</div>
-
-        @*<tr>
-                <td>  @user.Id </td>
-                <td>  @user.Email </td>
-                 <td>
-                    <p>
-                        <a asp-page="/Roles/GetAllRoles" asp-route-uid="@user.Id"> Assign Role </a>
-                    </p>
-                </td>
-
-            </tr>*@
+	    }
+        
 	}
 }
 else

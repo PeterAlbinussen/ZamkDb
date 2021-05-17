@@ -19,7 +19,7 @@ namespace ZamkDb.Models
 		public bool canBeDriver { get; set; }
 
 		[ForeignKey("Participant")]
-		public string DriverId { get; set; }
+		public string? DriverId { get; set; }
 
 		public virtual Participant Driver { get; set; }
 
