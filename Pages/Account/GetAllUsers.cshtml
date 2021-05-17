@@ -26,8 +26,8 @@
                     <h5 class="card-title">@user.Address</h5>
                 </div>
                 <div class="card-footer">
-                    <a asp-page="/Account/User_Bookings" asp-route-uid="@user.Id">My bookings</a>
-                    <a asp-page="/Account/ManageYourAccount" asp-route-uid="@user.Id">Manage Account </a>
+                    <a class="btn btn-primary" asp-page="/Account/User_Bookings" asp-route-uid="@user.Id">My Bookings</a>
+                    <a class="btn btn-primary" asp-page="/Account/ManageYourAccount" asp-route-uid="@user.Id">Manage Account </a>
                 </div>
 
             </div>
