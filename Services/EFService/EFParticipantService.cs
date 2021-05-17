@@ -31,5 +31,15 @@ namespace ZamkDb.Services.EFService
 		{
 			return _context.Participants;
 		}
-	}
+
+        public Participant EditParticipant(Participant p)
+        {
+			
+            var Participant = _context.Participants.Attach(p);
+            Participant.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return p;
+            
+        }
+    }
 }

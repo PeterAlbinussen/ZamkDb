@@ -22,9 +22,11 @@
 			<div class="card-body">
 				<h5 class="card-title">@user.Address</h5>
 			</div>
-			<div class="card-footer">
-				<a asp-page="/Accounts/User_Bookings" asp-route-uid="@user.Id">My bookings</a>
-			</div>
+            <div class="card-footer">
+                <a asp-page="/Account/User_Bookings" asp-route-uid="@user.Id">My bookings</a>
+                <a asp-page="/Account/ManageYourAccount" asp-route-uid="@user.Id">Manage Account </a>
+            </div>
+            
 			@*<a href="C:\Users\EASJ\Desktop\Security_AspNetCore\CarPooling_RazorPagesApp\CarPooling_RazorPagesApp\Models\CarPoolingDBContext.cs">C:\Users\EASJ\Desktop\Security_AspNetCore\CarPooling_RazorPagesApp\CarPooling_RazorPagesApp\Models\CarPoolingDBContext.cs</a>*@
 		</div>
 

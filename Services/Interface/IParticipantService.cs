@@ -10,5 +10,8 @@ namespace ZamkDb.Services.Interface
 	{
 		Participant GetParticipant(string id);
 		IEnumerable<Participant> GetAllParticipants();
-	}
+
+        Participant EditParticipant(Participant p);
+
+    }
 }
