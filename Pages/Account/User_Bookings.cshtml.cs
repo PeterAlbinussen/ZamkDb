@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ZamkDb.Models;
 using ZamkDb.Services.Interface;
 
-namespace ZamkDb.Pages.Accounts
+namespace ZamkDb.Pages.Account
 {
     public class User_BookingsModel : PageModel
     {

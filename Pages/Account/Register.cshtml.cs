@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ZamkDb.Models;
 using ZamkDb.ViewModels;
 
-namespace ZamkDb.Pages.Accounts
+namespace ZamkDb.Pages.Account
 {
     public class RegisterModel : PageModel
     {

@@ -10,7 +10,7 @@ using ZamkDb.Services.Interface;
 
 namespace ZamkDb.Pages.Courses
 {
-    //[Authorize]
+    [Authorize]
     public class GetAllCoursesModel : PageModel
     {
 	    private readonly ZamDbContext context;

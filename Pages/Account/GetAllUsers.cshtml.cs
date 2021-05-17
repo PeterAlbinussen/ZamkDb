@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ZamkDb.Models;
 
-namespace ZamkDb.Pages.Accounts
+namespace ZamkDb.Pages.Account
 {
     public class GetAllUsersModel : PageModel
     {

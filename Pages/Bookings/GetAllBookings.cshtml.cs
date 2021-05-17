@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ZamkDb.Models;
 using ZamkDb.Services.Interface;
 
+
 namespace ZamkDb.Pages.Bookings
 {
-    
+    [Authorize]
 	public class GetAllBookingsModel : PageModel
     {
         
