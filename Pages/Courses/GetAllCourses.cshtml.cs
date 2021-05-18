@@ -41,7 +41,6 @@ namespace ZamkDb.Pages.Courses
             Courses = context.Courses;
             //Courses = _repo.GetAllCourses();
 
-            //Courses = _repo.GetAllCourses();
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
                 Courses = _repo.FilterCourse(FilterCriteria);
@@ -54,15 +53,5 @@ namespace ZamkDb.Pages.Courses
 
         }
 
-        //public IActionResult OnGet()
-        //{
-        //    Courses = _repo.GetAllCourses();
-        //    if (!string.IsNullOrEmpty(FilterCriteria))
-        //    {
-        //        Courses = _repo.FilterCourse(FilterCriteria);
-        //    }
-
-        //    return Page();
-        //}
     }
 }

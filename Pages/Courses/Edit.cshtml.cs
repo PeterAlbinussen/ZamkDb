@@ -23,15 +23,6 @@ namespace ZamkDb.Pages.Courses
 
         public IActionResult OnGet(int id)
         {
-            //Course = repository.GetCourse(id);
-
-            //if (Course == null)
-            //{
-            //    return RedirectToPage("GetAllCourses");
-            //}
-
-            //return Page();
-
             Course = repository.GetCourse(id);
             return Page();
         }
