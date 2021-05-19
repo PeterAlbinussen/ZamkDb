@@ -24,7 +24,8 @@ namespace ZamkDb.Pages.Bookings
         public Booking Booking { get; set; } = new Booking();
         public IActionResult OnGet(int tid)
         {
-            //Booking = repo.GetBooking(tid);
+	        Booking.CourseId = tid;
+            
             Course = repoC.GetCourse(tid);
             return Page();
         }

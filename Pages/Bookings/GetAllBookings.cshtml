@@ -31,7 +31,7 @@
 			<td> @item.ParticipantId</td>
 			<td> @item.Participant.Name</td>
 			<td> @item.Course.User.Name</td>
-			<td> @item.Date</td>
+			<td> @item.Course.StartDateTime</td>
 			<td>
 				@if (User.Identity.GetUserId() == item.ParticipantId)
 				{
