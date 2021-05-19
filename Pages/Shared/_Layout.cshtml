@@ -24,13 +24,18 @@
 						<li class="nav-item">
 							<a class="nav-link text-light" asp-area="" asp-page="/Index" >Home</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-light" asp-area="" asp-page="/Courses/GetAllCourses">Courses</a>
-						</li>
-						<li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-page="/Courses/GetAllCourses">Others Courses</a>
+                                <a class="dropdown-item" asp-page="/Courses/MyCourses">My Courses</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
 							<a class="nav-link text-light" asp-area="" asp-page="/Bookings/GetAllBookings">Bookings</a>
 						</li>
 

@@ -34,7 +34,7 @@ namespace ZamkDb.Pages.Courses
 		    }
 
 		    _repo.AddCourse(Course);
-		    return RedirectToPage("GetAllCourses");
+		    return RedirectToPage("MyCourses");
 	    }
     }
 }
