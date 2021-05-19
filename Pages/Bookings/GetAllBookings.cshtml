@@ -39,7 +39,7 @@
 			<td>
 				@if (User.Identity.GetUserId() == item.ParticipantId)
 				{
-				    <a asp-page="Delete" asp-route-id="@item.BookingId" class="btn btn-danger m-1">Delete</a>
+				    <a asp-page="Delete" asp-route-id="@item.BookingId" class="btn btn-danger m-1">Cancel your booking</a>
 				}
 			</td>
 		</tr>
