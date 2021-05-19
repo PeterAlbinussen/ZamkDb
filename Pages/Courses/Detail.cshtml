@@ -6,7 +6,14 @@
 <h1>Information</h1>
 
 <div class="nav-item">
-	<img src="~/img/GoogleMaps.png"/>
+    @if (@Model.Course.ZealandLocation == "Roskilde")
+    {
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2252.350154230231!2d12.076499716155201!3d55.63072240886812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46525fe6169f296b%3A0x22ceaf8b52f6eeea!2sZealand%20-%20Sj%C3%A6llands%20Erhvervsakademi!5e0!3m2!1sda!2sdk!4v1620807497487!5m2!1sda!2sdk" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+    }
+    else if (@Model.Course.ZealandLocation == "Holbæk")
+    {
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d561.9023595217728!2d11.724153296355917!3d55.71316031142009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46527d13325ab7fb%3A0xa1e4018e76fd7f9!2sHUSC%20-%20Parkering!5e0!3m2!1sda!2sdk!4v1621421548533!5m2!1sda!2sdk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    }
 	<h5>Driver @User.Identity.Name</h5>
 	<h5>Zealand Location: @Model.Course.ZealandLocation </h5>
 	<h5>Startpoint: @Model.Course.StartLocation </h5>
