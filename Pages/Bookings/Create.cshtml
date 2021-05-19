@@ -12,20 +12,20 @@
 }
 
 <form method="post">
-	<h3>Insert values</h3>
-	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-	<div class="form-group">
+    <h3>Insert values</h3>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
         <label hidden="hidden" asp-for="Booking.CourseId"></label>
         <input hidden="hidden" asp-for="@Model.Booking.CourseId" class="form-control" />
-		<span asp-validation-for="Booking.CourseId" class="text-danger"></span>
-	</div>
+        <span asp-validation-for="Booking.CourseId" class="text-danger"></span>
+    </div>
 
     <div class="form-group">
         <label hidden="hidden" asp-for="Booking.ParticipantId"></label>
         <input hidden="hidden" asp-for="@Model.Booking.ParticipantId" class="form-control" />
         <span asp-validation-for="@Model.Booking.ParticipantId" class="text-danger"></span>
     </div>
-    <div class="form-group" input readonly >
+    <div class="form-group" input readonly>
         <label asp-for="Course.ZealandLocation"></label>
         <input asp-for="@Model.Course.ZealandLocation" class="form-control" readonly="readonly" />
         <span asp-validation-for="@Model.Course.ZealandLocation" class="text-danger"></span>
@@ -41,14 +41,24 @@
         <input asp-for="@Model.Course.EndLocation" class="form-control" />
         <span asp-validation-for="@Model.Course.EndLocation" class="text-danger"></span>
     </div>
-    
+
     <div class="form-group">
-        <label asp-for="Course.EndLocation"></label>
+        <label asp-for="Course.PickUpPoint1"></label>
         <input asp-for="@Model.Course.PickUpPoint1" class="form-control" />
-        <span asp-validation-for="@Model.Course.EndLocation" class="text-danger"></span>
+        <span asp-validation-for="@Model.Course.PickUpPoint1" class="text-danger"></span>
     </div>
 
-    
+    <div class="form-group">
+        <label asp-for="Course.PickUpPoint2"></label>
+        <input asp-for="@Model.Course.PickUpPoint2" class="form-control" />
+        <span asp-validation-for="@Model.Course.PickUpPoint2" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Course.PickUpPoint3"></label>
+        <input asp-for="@Model.Course.PickUpPoint3" class="form-control" />
+        <span asp-validation-for="@Model.Course.PickUpPoint3" class="text-danger"></span>
+    </div>
+
     <form action="/action_page.php">
         <label for="PickUpPoints">Choose a Pick up Point:</label>
         <select id="cars" name="cars">
@@ -56,12 +66,12 @@
             <option value="@Model.Course.PickUpPoint2">@Model.Course.PickUpPoint2</option>
             <option value="@Model.Course.PickUpPoint3">@Model.Course.PickUpPoint3</option>
         </select>
-        <input type="submit">
+        @*<input type="submit">*@
     </form>
-    
+
 
 
     <div class="text-center">
-		<input class="btn btn-primary" type="submit" value="Book this course" />
-	</div>
+        <input class="btn btn-primary" type="submit" value="Book this course" />
+    </div>
 </form>

@@ -12,28 +12,27 @@ namespace ZamkDb.Pages.Bookings
     public class CreateModel : PageModel
     {
 	    private readonly IBookingService repo;
+        private readonly ICourseService repoC;
 
-        [BindProperty] public Course Course { get; set; } = new Course();
+		[BindProperty] public Course Course { get; set; } = new Course();
 	    [BindProperty] public Booking Booking { get; set; } = new Booking();
-	    public CreateModel(IBookingService repo)
+	    public CreateModel(IBookingService repo, ICourseService repoC)
 	    {
 			this.repo = repo;
-		}
+            this.repoC = repoC;
+        }
 
         public IActionResult OnGet(int tid)
         {
 	        Booking.CourseId = tid;
-            Course.UserId = tid;
+            Course = repoC.GetCourse(tid);
 	        //Booking.ParticipantId = uid;
 	        return Page();
         }
 
         public IActionResult OnPost()
         {
-	        var errors = ModelState
-		        .Where(x => x.Value.Errors.Count > 0)
-		        .Select(x => new { x.Key, x.Value.Errors })
-		        .ToArray();
+	        
 			if (!ModelState.IsValid)
 	        {
 		        return Page();
@@ -41,6 +40,7 @@ namespace ZamkDb.Pages.Bookings
 
 	        repo.AddBooking(Booking);
 	        return RedirectToPage("GetAllBookings");
+			
         }
     }
 }
