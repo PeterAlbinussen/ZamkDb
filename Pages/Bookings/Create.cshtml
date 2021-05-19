@@ -59,19 +59,19 @@
         <span asp-validation-for="@Model.Course.PickUpPoint3" class="text-danger"></span>
     </div>
 
-    @*<form action="/action_page.php">*@
-        <label for="PickUpPoints">Choose a Pick up Point:</label>
-        <select id="cars" name="cars">
-            <option value="@Model.Course.PickUpPoint1">@Model.Course.PickUpPoint1</option>
-            <option value="@Model.Course.PickUpPoint2">@Model.Course.PickUpPoint2</option>
-            <option value="@Model.Course.PickUpPoint3">@Model.Course.PickUpPoint3</option>
-        </select>
-        @*<input type="submit">*@
-    @*</form>*@
+  
+    <label for="PickUpPoints">Choose a Pick up Point:</label>
+    <select id="cars" name="cars">
+        <option value="@Model.Course.PickUpPoint1">@Model.Course.PickUpPoint1</option>
+        <option value="@Model.Course.PickUpPoint2">@Model.Course.PickUpPoint2</option>
+        <option value="@Model.Course.PickUpPoint3">@Model.Course.PickUpPoint3</option>
+    </select>
+       
 
 
+   
 
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" value="Book this course" />
-    </div>
+    
+    <a class="btn btn-primary" asp-page="/Bookings/BookingConfirm" asp-route-tid="@Model.Course.CourseId"> Book this course </a>
+   
 </form>

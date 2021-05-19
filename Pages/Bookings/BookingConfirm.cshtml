@@ -1,0 +1,14 @@
+﻿@page
+@model ZamkDb.Pages.Bookings.BookingConfirmModel
+@{
+}
+<h1>Booking confirmed</h1>
+
+<div class="">
+    <h5>Are you sure you want to Book this Booking? - @Model.Booking.CourseId</h5>
+    <form method="post">
+        <button type="submit" class="btn btn-primary">Yes</button>
+        <a class="btn btn-danger" asp-page="/Courses/GetAllCourses">No</a>
+    </form>
+</div>
+
