@@ -13,6 +13,7 @@ namespace ZamkDb.Pages.Bookings
     {
 	    private readonly IBookingService repo;
 
+        [BindProperty] public Course Course { get; set; } = new Course();
 	    [BindProperty] public Booking Booking { get; set; } = new Booking();
 	    public CreateModel(IBookingService repo)
 	    {
@@ -22,6 +23,7 @@ namespace ZamkDb.Pages.Bookings
         public IActionResult OnGet(int tid)
         {
 	        Booking.CourseId = tid;
+            Course.UserId = tid;
 	        //Booking.ParticipantId = uid;
 	        return Page();
         }

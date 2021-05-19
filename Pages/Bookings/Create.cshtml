@@ -1,6 +1,8 @@
 ﻿@page
 @model ZamkDb.Pages.Bookings.CreateModel
 @using Microsoft.AspNet.Identity
+@using ZamkDb.Models
+@using ZamkDb.Pages.Courses
 @{
 	var id = User.Identity.GetUserId();
 	Model.Booking.ParticipantId = id;
@@ -13,21 +15,53 @@
 	<h3>Insert values</h3>
 	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 	<div class="form-group">
-		<label asp-for="Booking.CourseId"></label><input asp-for="@Model.Booking.CourseId" class="form-control" />
+        <label hidden="hidden" asp-for="Booking.CourseId"></label>
+        <input hidden="hidden" asp-for="@Model.Booking.CourseId" class="form-control" />
 		<span asp-validation-for="Booking.CourseId" class="text-danger"></span>
 	</div>
 
-	<div class="form-group">
-		<label asp-for="Booking.ParticipantId"></label><input asp-for="@Model.Booking.ParticipantId" class="form-control" />
-		<span asp-validation-for="@Model.Booking.ParticipantId" class="text-danger"></span>
-	</div>
+    <div class="form-group">
+        <label hidden="hidden" asp-for="Booking.ParticipantId"></label>
+        <input hidden="hidden" asp-for="@Model.Booking.ParticipantId" class="form-control" />
+        <span asp-validation-for="@Model.Booking.ParticipantId" class="text-danger"></span>
+    </div>
+    <div class="form-group" input readonly >
+        <label asp-for="Course.ZealandLocation"></label>
+        <input asp-for="@Model.Course.ZealandLocation" class="form-control" readonly="readonly" />
+        <span asp-validation-for="@Model.Course.ZealandLocation" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Course.StartLocation"></label>
+        <input asp-for="@Model.Course.StartLocation" class="form-control" />
+        <span asp-validation-for="@Model.Course.StartLocation" class="text-danger"></span>
+    </div>
 
-	<div class="form-group">
-		<label asp-for="Booking.Date"></label><input asp-for="@Model.Booking.Date" class="form-control" />
-		<span asp-validation-for="@Model.Booking.Date" class="text-danger"></span>
-	</div>
+    <div class="form-group">
+        <label asp-for="Course.EndLocation"></label>
+        <input asp-for="@Model.Course.EndLocation" class="form-control" />
+        <span asp-validation-for="@Model.Course.EndLocation" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Course.EndLocation"></label>
+        <input asp-for="@Model.Course.PickUpPoint1" class="form-control" />
+        <span asp-validation-for="@Model.Course.EndLocation" class="text-danger"></span>
+    </div>
 
-	<div class="text-center">
+    
+    <form action="/action_page.php">
+        <label for="PickUpPoints">Choose a Pick up Point:</label>
+        <select id="cars" name="cars">
+            <option value="@Model.Course.PickUpPoint1">@Model.Course.PickUpPoint1</option>
+            <option value="@Model.Course.PickUpPoint2">@Model.Course.PickUpPoint2</option>
+            <option value="@Model.Course.PickUpPoint3">@Model.Course.PickUpPoint3</option>
+        </select>
+        <input type="submit">
+    </form>
+    
+
+
+    <div class="text-center">
 		<input class="btn btn-primary" type="submit" value="Book this course" />
 	</div>
 </form>
