@@ -26,8 +26,8 @@
                     <h5 class="card-title">@user.Address</h5>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-primary" asp-page="/Account/User_Bookings" asp-route-uid="@user.Id">My Bookings</a>
-                    <a class="btn btn-primary" asp-page="/Account/ManageYourAccount" asp-route-uid="@user.Id">Manage Account </a>
+                    <a class="btn btn-dark" asp-page="/Account/User_Bookings" asp-route-uid="@user.Id">My Bookings</a>
+                    <a class="btn btn-dark" asp-page="/Account/ManageYourAccount" asp-route-uid="@user.Id">Manage Account </a>
                 </div>
 
             </div>
@@ -45,7 +45,7 @@ else
 			<h5 class="card-title">
 				Use the button below to create a user
 			</h5>
-			<a class="btn btn-primary" style="width:auto" asp-page="Accounts/Registration">
+			<a class="btn btn-dark" style="width:auto" asp-page="Accounts/Registration">
 				Create User
 			</a>
 		</div>
