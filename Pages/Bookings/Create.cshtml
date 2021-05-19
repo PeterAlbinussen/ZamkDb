@@ -32,34 +32,34 @@
     </div>
     <div class="form-group">
         <label asp-for="Course.StartLocation"></label>
-        <input asp-for="@Model.Course.StartLocation" class="form-control" />
+        <input asp-for="@Model.Course.StartLocation" class="form-control" readonly="readonly" />
         <span asp-validation-for="@Model.Course.StartLocation" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Course.EndLocation"></label>
-        <input asp-for="@Model.Course.EndLocation" class="form-control" />
+        <input asp-for="@Model.Course.EndLocation" class="form-control"  readonly="readonly"/>
         <span asp-validation-for="@Model.Course.EndLocation" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Course.PickUpPoint1"></label>
-        <input asp-for="@Model.Course.PickUpPoint1" class="form-control" />
+        <input asp-for="@Model.Course.PickUpPoint1" class="form-control" readonly="readonly" />
         <span asp-validation-for="@Model.Course.PickUpPoint1" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Course.PickUpPoint2"></label>
-        <input asp-for="@Model.Course.PickUpPoint2" class="form-control" />
+        <input asp-for="@Model.Course.PickUpPoint2" class="form-control" readonly="readonly" />
         <span asp-validation-for="@Model.Course.PickUpPoint2" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Course.PickUpPoint3"></label>
-        <input asp-for="@Model.Course.PickUpPoint3" class="form-control" />
+        <input asp-for="@Model.Course.PickUpPoint3" class="form-control" readonly="readonly" />
         <span asp-validation-for="@Model.Course.PickUpPoint3" class="text-danger"></span>
     </div>
 
-    <form action="/action_page.php">
+    @*<form action="/action_page.php">*@
         <label for="PickUpPoints">Choose a Pick up Point:</label>
         <select id="cars" name="cars">
             <option value="@Model.Course.PickUpPoint1">@Model.Course.PickUpPoint1</option>
@@ -67,7 +67,7 @@
             <option value="@Model.Course.PickUpPoint3">@Model.Course.PickUpPoint3</option>
         </select>
         @*<input type="submit">*@
-    </form>
+    @*</form>*@
 
 
 
