@@ -19,7 +19,8 @@ namespace ZamkDb.Pages.Courses
             this.repository = repository;
         }
 
-        public Course Course { get; set; }
+        [BindProperty]
+        public Course Course { get; set; } = new Course();
 
         public IActionResult OnGet(int id)
         {
@@ -30,7 +31,7 @@ namespace ZamkDb.Pages.Courses
         public IActionResult OnPost(Course course)
         {
             Course = repository.EditCourse(course);
-            return RedirectToPage("GetAllCourses");
+            return RedirectToPage("/Courses/MyCourses");
         }
 
     }

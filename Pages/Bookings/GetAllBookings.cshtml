@@ -11,10 +11,12 @@
 	<tr>
 		<th>Booking Id</th>
 		<th>Course Id</th>
-		<th>Participant Id</th>
-		<th>Participant name</th>
-		<th>Driver name</th>
-		<th> Date </th>
+		<th>Your Id</th>
+		<th>Your name</th>
+		<th>Driver Name</th>
+        <th>Zealand Location </th>
+        <th>End Location </th>
+        <th>Date</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -30,13 +32,14 @@
 			<td> @item.CourseId</td>
 			<td> @item.ParticipantId</td>
 			<td> @item.Participant.Name</td>
-			<td> @item.Course.User.Name</td>
+            <td> @item.Course.User.Name</td>
+            <td> @item.Course.ZealandLocation</td>
+            <td> @item.Course.EndLocation</td>
 			<td> @item.Course.StartDateTime</td>
 			<td>
 				@if (User.Identity.GetUserId() == item.ParticipantId)
 				{
 				    <a asp-page="Delete" asp-route-id="@item.BookingId" class="btn btn-danger m-1">Delete</a>
-				    <a asp-page="Edit" asp-route-id="@item.CourseId" class="btn btn-dark m-1">Edit</a>
 				}
 			</td>
 		</tr>
