@@ -30,17 +30,17 @@ namespace ZamkDb.Pages.Bookings
 	        return Page();
         }
 
-        public IActionResult OnPost()
-        {
+   //     public IActionResult OnPost()
+   //     {
 	        
-			if (!ModelState.IsValid)
-	        {
-		        return Page();
-	        }
+			//if (!ModelState.IsValid)
+	  //      {
+		 //       return Page();
+	  //      }
 
-	        repo.AddBooking(Booking);
-	        return RedirectToPage("GetAllBookings");
+	  //      repo.AddBooking(Booking);
+	  //      return RedirectToPage("GetAllBookings");
 			
-        }
+   //     }
     }
 }
