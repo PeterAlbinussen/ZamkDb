@@ -26,9 +26,9 @@
 
 	<form method="post">
 		@*<button type="submit" class="btn btn-primary">Book this course</button>*@
-		<a class="btn btn-primary" asp-page="/Courses/GetAllCourses">Go back</a>
+		<a class="btn btn-dark" asp-page="/Courses/GetAllCourses">Go back</a>
 		<p>
-			<a class="btn btn-primary" asp-page="/Bookings/Create"  asp-route-tid="@Model.Course.CourseId">Book </a>
+			<a class="btn btn-dark" asp-page="/Bookings/Create"  asp-route-tid="@Model.Course.CourseId">Book </a>
 		</p>
 	</form>
 </div>

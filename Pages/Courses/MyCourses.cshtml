@@ -5,7 +5,7 @@
 }
 
 <p>
-    <a class="btn btn-primary" asp-page="/Courses/Create">Create New Course</a>
+    <a class="btn btn-dark" asp-page="/Courses/Create">Create New Course</a>
 </p>
 
 
@@ -29,11 +29,11 @@
                         <img class="card-img-top" src="~/img/GoogleMaps.png" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Zealand Location: @p.ZealandLocation</h5>
-                            <a asp-page="/Courses/Detail" asp-route-id="@p.CourseId" class="btn btn-primary">More information</a>
+                            <a asp-page="/Courses/Detail" asp-route-id="@p.CourseId" class="btn btn-dark">More information</a>
                             @if (User.Identity.GetUserId() == p.UserId)
                             {
                                 <a asp-page="Delete" asp-route-id="@p.CourseId" class="btn btn-danger m-1">Delete</a>
-                                <a asp-page="Edit" asp-route-id="@p.CourseId" class="btn btn-primary m-1">Edit</a>
+                                <a asp-page="Edit" asp-route-id="@p.CourseId" class="btn btn-dark m-1">Edit</a>
 
                             }
                         </div>

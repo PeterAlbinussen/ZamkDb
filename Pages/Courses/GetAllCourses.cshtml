@@ -30,13 +30,13 @@
 							<p class="card-text">Start time: @p.StartDateTime</p>
 							<p class="card-text">ETA: @p.EndDateTime</p>
 							@*<p class="card-text">Driver: @p.User.Name</p>*@
-							<a asp-page="/Courses/Detail" asp-route-id="@p.CourseId" class="btn btn-primary">More information</a>
-                            <a asp-page="/Bookings/Create" asp-route-tid="@p.CourseId" class="btn btn-primary">Book </a>
+							<a asp-page="/Courses/Detail" asp-route-id="@p.CourseId" class="btn btn-dark">More information</a>
+                            <a asp-page="/Bookings/Create" asp-route-tid="@p.CourseId" class="btn btn-dark">Book </a>
                            
 							@if (User.Identity.GetUserId() == p.UserId)
 							{
 							    <a asp-page="Delete" asp-route-id="@p.CourseId" class="btn btn-danger m-1">Delete</a>
-							    <a asp-page="Edit" asp-route-id="@p.CourseId" class="btn btn-primary m-1">Edit</a>
+							    <a asp-page="Edit" asp-route-id="@p.CourseId" class="btn btn-dark m-1">Edit</a>
 							   
 							}
 							
