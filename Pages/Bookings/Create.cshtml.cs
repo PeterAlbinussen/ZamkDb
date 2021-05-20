@@ -29,29 +29,15 @@ namespace ZamkDb.Pages.Bookings
 
         public IActionResult OnGet(int tid, string cpp)
         {
-            Booking.CourseId = tid;
-            Course = repoC.GetCourse(tid);
-            Booking.ChosenPickUpPoint = cpp;
-
-            //PickUpPointList.Append(new SelectListItem(Course.PickUpPoint1,Course.PickUpPoint1));
-            //PickUpPointList.Append(new SelectListItem(Course.PickUpPoint2, Course.PickUpPoint2));
-            //PickUpPointList.Append(new SelectListItem(Course.PickUpPoint3, Course.PickUpPoint3));
-
-            //Booking.ParticipantId = uid;
-            return Page();
+           Booking.CourseId = tid;
+           Course = repoC.GetCourse(tid);
+           return Page();
         }
 
-        //public IActionResult OnPost()
-        //{
-
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Page();
-        //    }
-
-        //    return RedirectToPage("BookingConfirm");
-
-        //}
+        public IActionResult OnPost(int tid)
+        {
+            return RedirectToPage("BookingConfirm", new { tid = tid, ppoint = Booking.ChosenPickUpPoint });
+        }
 
 
     }
