@@ -34,7 +34,7 @@ namespace ZamkDb.Pages.Account
             URL = ReturnUrl;
         }
 
-        public async Task<IActionResult> OnPost(string ReturnUrl)
+        public async Task<IActionResult> OnPost(/*string ReturnUrl*/)
         {
             if (!ModelState.IsValid)
             {
@@ -46,7 +46,8 @@ namespace ZamkDb.Pages.Account
                 if (result.Succeeded)
                 {
                     //return RedirectToPage("/Courses/GetAllCourses");
-                    return RedirectToPage(ReturnUrl);
+                    //return RedirectToPage(ReturnUrl);
+                    return RedirectToPage("/Account/LoginSuccess");
                 }
                 else
                 {
