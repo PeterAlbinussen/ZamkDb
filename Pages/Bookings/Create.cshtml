@@ -3,12 +3,16 @@
 @using Microsoft.AspNet.Identity
 @using ZamkDb.Models
 @using ZamkDb.Pages.Courses
+@using System.Diagnostics.Contracts
 @{
-	var id = User.Identity.GetUserId();
-	Model.Booking.ParticipantId = id;
+    var id = User.Identity.GetUserId();
+    Model.Booking.ParticipantId = id;
 
-	var date = DateTime.Now;
-	Model.Booking.Date = date;
+    var date = DateTime.Now;
+    Model.Booking.Date = date;
+
+    var cpp = @Model.Booking.ChosenPickUpPoint;
+    //var pickupplace = Request.Form["Pickup"];
 }
 
 <form method="post">
@@ -20,19 +24,19 @@
         <span asp-validation-for="Booking.CourseId" class="text-danger"></span>
     </div>
 
-	<div class="form-group">
-		<label hidden="hidden" asp-for="Booking.ParticipantId"></label>
-		<input hidden="hidden" asp-for="@Model.Booking.ParticipantId" class="form-control" />
-		<span asp-validation-for="@Model.Booking.ParticipantId" class="text-danger"></span>
-	</div>
-    
-	<div class="form-group">
-		<label  asp-for="Course.StartDateTime"></label>
-		<input  asp-for="@Model.Course.StartDateTime" class="form-control" readonly="readonly"/>
-		<span asp-validation-for="@Model.Course.StartDateTime" class="text-danger"></span>
-	</div>
+    <div class="form-group">
+        <label hidden="hidden" asp-for="Booking.ParticipantId"></label>
+        <input hidden="hidden" asp-for="@Model.Booking.ParticipantId" class="form-control" />
+        <span asp-validation-for="@Model.Booking.ParticipantId" class="text-danger"></span>
+    </div>
 
-	<div class="form-group" input readonly>
+    <div class="form-group">
+        <label asp-for="Course.StartDateTime"></label>
+        <input asp-for="@Model.Course.StartDateTime" class="form-control" readonly="readonly" />
+        <span asp-validation-for="@Model.Course.StartDateTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group" input readonly>
         <label asp-for="Course.ZealandLocation"></label>
         <input asp-for="@Model.Course.ZealandLocation" class="form-control" readonly="readonly" />
         <span asp-validation-for="@Model.Course.ZealandLocation" class="text-danger"></span>
@@ -45,7 +49,7 @@
 
     <div class="form-group">
         <label asp-for="Course.EndLocation"></label>
-        <input asp-for="@Model.Course.EndLocation" class="form-control"  readonly="readonly"/>
+        <input asp-for="@Model.Course.EndLocation" class="form-control" readonly="readonly" />
         <span asp-validation-for="@Model.Course.EndLocation" class="text-danger"></span>
     </div>
 
@@ -66,19 +70,34 @@
         <span asp-validation-for="@Model.Course.PickUpPoint3" class="text-danger"></span>
     </div>
 
-  
-    <label for="PickUpPoints">Choose a Pick up Point:</label>
-    <select id="cars" name="cars">
-        <option value="@Model.Course.PickUpPoint1">@Model.Course.PickUpPoint1</option>
-        <option value="@Model.Course.PickUpPoint2">@Model.Course.PickUpPoint2</option>
-        <option value="@Model.Course.PickUpPoint3">@Model.Course.PickUpPoint3</option>
-    </select>
-       
 
 
-   
+    <div>
+        <label asp-for="Booking.ChosenPickUpPoint"></label>
+        <select asp-for="Booking.ChosenPickUpPoint">
+            <option asp-validation-for="@Model.Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint1</option>
+            <option asp-validation-for="@Model.Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint2</option>
+            <option asp-validation-for="@Model.Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint3</option>
+        </select>
+    </div>
 
-    
+
+
+    @*<div>
+            <label asp-for="Course.ZealandLocation"></label>
+            <select asp-for="@Model.Course.ZealandLocation">
+                <option asp-validation-for="@Model.Course.ZealandLocation">Roskilde</option>
+                <option asp-validation-for="@Model.Course.ZealandLocation">Holbæk</option>
+                <option asp-validation-for="@Model.Course.ZealandLocation">Slagelse</option>
+                <option asp-validation-for="@Model.Course.ZealandLocation">Næstved</option>
+                <option asp-validation-for="@Model.Course.ZealandLocation">Nykøbing F.</option>
+            </select>
+        </div>*@
+
+
+
+    @*<a class="btn btn-dark" asp-page="/Bookings/BookingConfirm" asp-route-cpp="@cpp" asp-route-tid="@Model.Course.CourseId"> Book this course </a>*@
+
     <a class="btn btn-dark" asp-page="/Bookings/BookingConfirm" asp-route-tid="@Model.Course.CourseId"> Book this course </a>
-   
+
 </form>

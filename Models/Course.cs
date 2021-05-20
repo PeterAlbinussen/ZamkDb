@@ -33,6 +33,10 @@ namespace ZamkDb.Models
 		[ForeignKey(nameof(UserId))]
 		public virtual Participant User { get; set; }
 
+        public int AvailableSeats { get; set; }
+
+
+
 		public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace ZamkDb.Pages.Bookings
     {
         private readonly IBookingService repo;
         private readonly ICourseService repoC;
-        public BookingConfirmModel (IBookingService repo, ICourseService repoC)
+        public BookingConfirmModel(IBookingService repo, ICourseService repoC)
         {
             this.repo = repo;
             this.repoC = repoC;
@@ -22,10 +22,10 @@ namespace ZamkDb.Pages.Bookings
 
         [BindProperty]
         public Booking Booking { get; set; } = new Booking();
-        public IActionResult OnGet(int tid)
+        public IActionResult OnGet(int tid, string cpp)
         {
-	        Booking.CourseId = tid;
-            
+            Booking.CourseId = tid;
+            Booking.ChosenPickUpPoint = cpp;
             Course = repoC.GetCourse(tid);
             return Page();
         }
@@ -33,7 +33,7 @@ namespace ZamkDb.Pages.Bookings
         public IActionResult OnPost()
         {
             repo.AddBooking(Booking);
-          
+
             return RedirectToPage("GetAllBookings");
         }
     }
