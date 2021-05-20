@@ -28,6 +28,7 @@ namespace ZamkDb.Pages.Bookings
         {
             Booking.CourseId = tid;
             Course = repoC.GetCourse(tid);
+            Booking.ChosenPickUpPoint = cpp;
 
             //Booking.ParticipantId = uid;
             return Page();
@@ -41,9 +42,10 @@ namespace ZamkDb.Pages.Bookings
         //        return Page();
         //    }
 
-        //    repo.AddBooking(Booking);
-        //    return RedirectToPage("GetAllBookings");
+        //    return RedirectToPage("BookingConfirm");
 
         //}
+
+
     }
 }

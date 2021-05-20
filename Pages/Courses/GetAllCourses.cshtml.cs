@@ -17,7 +17,7 @@ namespace ZamkDb.Pages.Courses
 		[BindProperty]
 		public Course Course { get; set; }
 		public IEnumerable<Course> Courses { get; set; }
-
+        [BindProperty] public Booking Booking { get; set; } = new Booking();
 
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }

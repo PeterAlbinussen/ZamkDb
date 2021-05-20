@@ -1,10 +1,16 @@
 ﻿@page
 @model ZamkDb.Pages.Courses.GetAllCoursesModel
 @using Microsoft.AspNet.Identity
+@using Microsoft.EntityFrameworkCore
 @{
     //var id = User.Identity.GetUserId();
     //Model.Course.UserId = id;
 }
+
+<html>
+<body style="background-color: rgba(244, 217, 107, 255);">
+</body>
+</html>
 <h4 style="		color: cornflowerblue"> List of Courses</h4>
 <form>
     <p>
@@ -18,8 +24,8 @@
         {
             @if (User.Identity.GetUserId() != p.UserId)
             {
-
-
+              @if(Model.Booking.CourseId < p.AvailableSeats)
+              {
                 <div class="col-sm">
                     <div class="card" style="width: 20rem;">
                         <img class="card-img-top" src="~/img/GoogleMaps.png" alt="Card image cap" >
@@ -29,25 +35,29 @@
                             <p class="card-text">Endpoint: @p.EndLocation</p>
                             <p class="card-text">Start time: @p.StartDateTime</p>
                             <p class="card-text">ETA: @p.EndDateTime</p>
+                             
                             <p class="card-text">Available Seats: @p.AvailableSeats</p>
+                            
                             @*<p class="card-text">Driver: @p.User.Name</p>*@
                             <a asp-page="/Courses/Detail" asp-route-id="@p.CourseId" class="btn btn-dark">More information</a>
                             <a asp-page="/Bookings/Create" asp-route-tid="@p.CourseId" class="btn btn-dark">Book </a>
-                           
+
+
                             @if (User.Identity.GetUserId() == p.UserId)
                             {
                                 <a asp-page="Delete" asp-route-id="@p.CourseId" class="btn btn-danger m-1">Delete</a>
                                 <a asp-page="Edit" asp-route-id="@p.CourseId" class="btn btn-dark m-1">Edit</a>
-							   
+
                             }
-							
-							
+
+
 
                             @*<a asp-page="/Courses/Registration" asp-route-cid="@p.CourseId" class="btn btn-primary">Show courses</a>*@
                         </div>
                     </div>
                     <br />
-                </div>
+                    </div>
+            } 
             }
         }
     </div>

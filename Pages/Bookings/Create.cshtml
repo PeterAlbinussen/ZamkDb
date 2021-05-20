@@ -11,7 +11,7 @@
     var date = DateTime.Now;
     Model.Booking.Date = date;
 
-    var cpp = @Model.Booking.ChosenPickUpPoint;
+    //var cpp = "Cph";
     //var pickupplace = Request.Form["Pickup"];
 }
 
@@ -70,34 +70,25 @@
         <span asp-validation-for="@Model.Course.PickUpPoint3" class="text-danger"></span>
     </div>
 
-
-
-    <div>
-        <label asp-for="Booking.ChosenPickUpPoint"></label>
-        <select asp-for="Booking.ChosenPickUpPoint">
-            <option asp-validation-for="@Model.Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint1</option>
-            <option asp-validation-for="@Model.Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint2</option>
-            <option asp-validation-for="@Model.Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint3</option>
-        </select>
+    <div class="form-group">
+        <label asp-for="Course.AvailableSeats"></label>
+        <input asp-for="@Model.Course.AvailableSeats" class="form-control" readonly="readonly" />
+        <span asp-validation-for="@Model.Course.AvailableSeats" class="text-danger"></span>
     </div>
 
+    <div>
+        <label asp-for="@Model.Booking.ChosenPickUpPoint"></label>
+        <select asp-for="@Model.Booking.ChosenPickUpPoint" onchange="">
+            <option asp-validation-for="Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint1</option>
+            <option asp-validation-for="Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint2</option>
+            <option asp-validation-for="Booking.ChosenPickUpPoint">@Model.Course.PickUpPoint3</option>
+        </select>
+    </div>
+    
+   
 
+    <a class="btn btn-dark" asp-page="/Bookings/BookingConfirm" asp-route-cpp="@Model.Booking.ChosenPickUpPoint" asp-route-tid="@Model.Course.CourseId"> Book this course </a>
 
-    @*<div>
-            <label asp-for="Course.ZealandLocation"></label>
-            <select asp-for="@Model.Course.ZealandLocation">
-                <option asp-validation-for="@Model.Course.ZealandLocation">Roskilde</option>
-                <option asp-validation-for="@Model.Course.ZealandLocation">Holbæk</option>
-                <option asp-validation-for="@Model.Course.ZealandLocation">Slagelse</option>
-                <option asp-validation-for="@Model.Course.ZealandLocation">Næstved</option>
-                <option asp-validation-for="@Model.Course.ZealandLocation">Nykøbing F.</option>
-            </select>
-        </div>*@
-
-
-
-    @*<a class="btn btn-dark" asp-page="/Bookings/BookingConfirm" asp-route-cpp="@cpp" asp-route-tid="@Model.Course.CourseId"> Book this course </a>*@
-
-    <a class="btn btn-dark" asp-page="/Bookings/BookingConfirm" asp-route-tid="@Model.Course.CourseId"> Book this course </a>
+    @*<a class="btn btn-dark" asp-page="/Bookings/BookingConfirm" asp-route-tid="@Model.Course.CourseId"> Book this course </a>*@
 
 </form>
