@@ -68,7 +68,8 @@
 							<p class="card-text">Driver name: @p.Course.User.Name</p>
 							<p class="card-text">Start location: @p.Course.StartLocation</p>
 							<p class="card-text">End location: @p.Course.EndLocation</p>
-							<p class="card-text">Date: @p.Course.StartDateTime</p>
+                            <p class="card-text">Date: @p.Course.StartDateTime</p>
+                            <p class="card-text">Chosen Pickup Point: @p.ChosenPickUpPoint</p>
 							@if (User.Identity.GetUserId() == p.ParticipantId)
 							{
 								<a asp-page="Delete" asp-route-id="@p.BookingId" class="btn btn-danger m-1">Cancel your booking</a>

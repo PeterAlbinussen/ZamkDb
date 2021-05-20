@@ -2,13 +2,10 @@
 @model ZamkDb.Pages.Courses.GetAllCoursesModel
 @using Microsoft.AspNet.Identity
 @{
-//var id = User.Identity.GetUserId();
-//Model.Course.UserId = id;
+    //var id = User.Identity.GetUserId();
+    //Model.Course.UserId = id;
 }
-
-
-<h4 style="		color: cornflowerblue
-"> List of Courses</h4>
+<h4 style="		color: cornflowerblue"> List of Courses</h4>
 <form>
     <p>
         Search: <input type="text" asp-for="FilterCriteria" />
@@ -16,41 +13,42 @@
     </p>
 </form>
 <div class="container">
-	<div class="row">
-		@foreach (var p in Model.Courses)
-		{
-			@if (User.Identity.GetUserId() != p.UserId)
-			{
+    <div class="row">
+        @foreach (var p in Model.Courses)
+        {
+            @if (User.Identity.GetUserId() != p.UserId)
+            {
 
 
-				<div class="col-sm">
-					<div class="card" style="width: 20rem;">
-						<img class="card-img-top" src="~/img/GoogleMaps.png" alt="Card image cap" >
-						<div class="card-body">
-							<h5 class="card-title">Zealand Location: @p.ZealandLocation</h5>
-							<p class="card-text">Startpoint: @p.StartLocation</p>
-							<p class="card-text">Endpoint: @p.EndLocation</p>
-							<p class="card-text">Start time: @p.StartDateTime</p>
-							<p class="card-text">ETA: @p.EndDateTime</p>
-							@*<p class="card-text">Driver: @p.User.Name</p>*@
-							<a asp-page="/Courses/Detail" asp-route-id="@p.CourseId" class="btn btn-dark">More information</a>
+                <div class="col-sm">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="~/img/GoogleMaps.png" alt="Card image cap" >
+                        <div class="card-body">
+                            <h5 class="card-title">Zealand Location: @p.ZealandLocation</h5>
+                            <p class="card-text">Startpoint: @p.StartLocation</p>
+                            <p class="card-text">Endpoint: @p.EndLocation</p>
+                            <p class="card-text">Start time: @p.StartDateTime</p>
+                            <p class="card-text">ETA: @p.EndDateTime</p>
+                            <p class="card-text">Available Seats: @p.AvailableSeats</p>
+                            @*<p class="card-text">Driver: @p.User.Name</p>*@
+                            <a asp-page="/Courses/Detail" asp-route-id="@p.CourseId" class="btn btn-dark">More information</a>
                             <a asp-page="/Bookings/Create" asp-route-tid="@p.CourseId" class="btn btn-dark">Book </a>
                            
-							@if (User.Identity.GetUserId() == p.UserId)
-							{
-							    <a asp-page="Delete" asp-route-id="@p.CourseId" class="btn btn-danger m-1">Delete</a>
-							    <a asp-page="Edit" asp-route-id="@p.CourseId" class="btn btn-dark m-1">Edit</a>
+                            @if (User.Identity.GetUserId() == p.UserId)
+                            {
+                                <a asp-page="Delete" asp-route-id="@p.CourseId" class="btn btn-danger m-1">Delete</a>
+                                <a asp-page="Edit" asp-route-id="@p.CourseId" class="btn btn-dark m-1">Edit</a>
 							   
-							}
+                            }
 							
 							
 
                             @*<a asp-page="/Courses/Registration" asp-route-cid="@p.CourseId" class="btn btn-primary">Show courses</a>*@
-						</div>
-					</div>
-					<br />
-				</div>
-			}
-		}
-	</div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            }
+        }
+    </div>
 </div>
