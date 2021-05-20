@@ -9,14 +9,13 @@
     <h3>Please Edit your information here.</h3>
     <div asp-validation-summary="  ModelOnly  " class="text-danger"></div>
     <input type="hidden" asp-for="@Model.Course.CourseId" />
-    <div class="form-group">
+    @*<div class="form-group">
         <label asp-for="@Model.Course.ZealandLocation" class="control-label"></label>
         <input asp-for="@Model.Course.ZealandLocation" class="form-control" placeholder="Zealand Location" readonly="readonly" />
         <span asp-validation-for="@Model.Course.ZealandLocation" class="text-danger"></span>
-    </div>
+    </div>*@
 
-    @*<div>
-        <h3>Please Edit your information here.</h3>
+    <div>
         <label asp-for="Course.ZealandLocation"></label>
         <select asp-for="@Model.Course.ZealandLocation">
             <option asp-validation-for="@Model.Course.ZealandLocation">Roskilde</option>
@@ -25,7 +24,7 @@
             <option asp-validation-for="@Model.Course.ZealandLocation">Næstved</option>
             <option asp-validation-for="@Model.Course.ZealandLocation">Nykøbing F.</option>
         </select>
-    </div>*@
+    </div>
 
     <div class="form-group">
         <label asp-for="@Model.Course.StartLocation" class="control-label"></label>
