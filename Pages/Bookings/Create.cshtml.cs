@@ -13,18 +13,16 @@ namespace ZamkDb.Pages.Bookings
 {
     public class CreateModel : PageModel
     {
-        private readonly IBookingService repo;
-        private readonly ICourseService repoC;
+	    private readonly ICourseService repoC;
 
         [BindProperty] public Course Course { get; set; } = new Course();
         [BindProperty] public Booking Booking { get; set; } = new Booking();
 
         //[BindProperty] public IEnumerable<SelectListItem> PickUpPointList { get; set; } = new List<SelectListItem>();
 
-        public CreateModel(IBookingService repo, ICourseService repoC)
+        public CreateModel(ICourseService repoC)
         {
-            this.repo = repo;
-            this.repoC = repoC;
+	        this.repoC = repoC;
         }
 
         public IActionResult OnGet(int tid)
