@@ -45,9 +45,7 @@ namespace ZamkDb.Pages.Account
                 var result = await SignIn.PasswordSignInAsync(UserName, LoginViewModel.Password, RememberMe, false);
                 if (result.Succeeded)
                 {
-                    //return RedirectToPage("/Courses/GetAllCourses");
-                    //return RedirectToPage(ReturnUrl);
-                    return RedirectToPage("/Account/LoginSuccess");
+	                return RedirectToPage("/Account/LoginSuccess");
                 }
                 else
                 {

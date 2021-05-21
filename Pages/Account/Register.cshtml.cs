@@ -33,7 +33,6 @@ namespace ZamkDb.Pages.Account
 		    {
 			    return Page();
 		    }
-		    //var user = new IdentityUser { Email = Registration.Email, UserName = Registration.Email };
 		    var user = new Participant() { Name = Registration.Name, Address = Registration.Address, Email = Registration.Email, UserName = Registration.Email, canBeDriver = Registration.canBeDriver };
 		    if (user != null && user.canBeDriver)
 		    {
