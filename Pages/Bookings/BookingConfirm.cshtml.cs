@@ -22,10 +22,10 @@ namespace ZamkDb.Pages.Bookings
 
         [BindProperty]
         public Booking Booking { get; set; } = new Booking();
-        public IActionResult OnGet(int tid, string cpp)
+        public IActionResult OnGet(int tid, string ppoint)
         {
             Booking.CourseId = tid;
-            Booking.ChosenPickUpPoint = cpp;
+            Booking.ChosenPickUpPoint = ppoint;
             Course = repoC.GetCourse(tid);
             return Page();
         }
