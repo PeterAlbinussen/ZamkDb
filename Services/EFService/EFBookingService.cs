@@ -44,8 +44,11 @@ namespace ZamkDb.Services.EFService
 
 		public IEnumerable<Booking> GetAllBookings()
 		{
-			var booking = _context.Bookings.Include(p=> p.Participant).Include(c => c.Course).ThenInclude(u => u.User);
+			//Virker med Programmet
+			var booking = _context.Bookings.Include(p => p.Participant).Include(c => c.Course).ThenInclude(u => u.User);
 			return booking;
+
+			//Virker kun ved unitTest
 			//return _context.Bookings;
 		}
 	}

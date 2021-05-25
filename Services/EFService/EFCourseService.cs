@@ -19,16 +19,12 @@ namespace ZamkDb.Services.EFService
 
 		public IEnumerable<Course> GetAllCourses()
 		{
-			return _context.Courses.Include(p => p.User).ThenInclude(x => x.Driver.Name);
+			//return _context.Courses.Include(p => p.User).ThenInclude(x => x.Driver.Name);
+			return _context.Courses;
 		}
 
 		public Course GetCourse(int id)
 		{
-			//var course = _context.Courses.Include(c => c.Bookings).ThenInclude(b => b.Participant)
-			//	.AsNoTracking()
-			//	.FirstOrDefault(m => m.CourseId == id);
-			////var course = _context.Courses.Include(c => c.Bookings).AsNoTracking().FirstOrDefault(b => b.CourseId == id);
-			//return course;
 			return _context.Courses.Find(id);
 		}
 
